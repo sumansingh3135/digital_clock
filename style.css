@@ -1,0 +1,77 @@
+/* --- Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Background Gradient + Animation --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e1e2f, #141414, #2c3e50);
+    background-size: 400% 400%;
+    animation: backgroundShift 12s ease infinite;
+
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #61dafb;
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Clock Container with Glass Effect --- */
+.clock-container {
+    padding: 2rem 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+    animation: popIn 0.8s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Clock Text Styling --- */
+.clock {
+    font-size: 4.2rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+
+    /* Neon glow effect */
+    color: #00eaff;
+    text-shadow: 
+        0 0 8px #00eaff,
+        0 0 20px #00eaff,
+        0 0 40px #00eaff,
+        0 0 60px #00eaff;
+
+    transition: transform 0.25s ease;
+}
+
+/* Hover tilt effect */
+.clock-container:hover .clock {
+    transform: scale(1.05);
+}
+
+/* Optional smooth digit transition (subtle fade) */
+.clock {
+    animation: fadeIn 1s ease infinite;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0.92; }
+    50% { opacity: 1; }
+    100% { opacity: 0.92; }
+}
